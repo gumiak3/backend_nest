@@ -9,73 +9,73 @@ import {
 import { PageButtons, Socials } from 'src/types/types';
 
 export class CreatePageDto {
-  @ApiProperty()
+  @ApiProperty({example: 'John997'})
   @IsString()
   @IsNotEmpty()
   username: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'Such amazing page'})
   @IsString()
   bio: string;
 
-  @ApiProperty()
+  @ApiProperty({example: false})
   @IsBoolean()
   premium: boolean;
 
-  @ApiProperty()
+  @ApiProperty({example: []})
   @IsArray()
   profilePicture: string[];
 
-  @ApiProperty()
+  @ApiProperty({example: false})
   @IsBoolean()
   verified: boolean;
 
-  @ApiProperty()
+  @ApiProperty({example: 'John'})
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'Johnetamil@gmail.pl'})
   @IsEmail()
   email: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'https://imageurl.pl'})
   @IsString()
   img: string;
 
-  @ApiProperty()
+  @ApiProperty({example: [{name: 'facebook', url: 'https://facebook.com', icon: 'facebook'}], type: [Socials]  })
   @IsArray()
   socials: Socials[];
 
-  @ApiProperty()
+  @ApiProperty({example: [{name: 'Contact me', url: 'https://fake-contact.com', image: 'https://imageurl.com'}], type: [PageButtons]})
   @IsArray()
   buttons: PageButtons[];
 
-  @ApiProperty()
+  @ApiProperty({example: 'https://backgroundimagelink.com'})
   @IsString()
   backgroundImage: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'Arial'})
   @IsString()
   font: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'red'})
   @IsString()
   fontColor: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'lg'})
   @IsString()
   radius: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'rounded'})
   @IsString()
   buttonStyle: string;
 
-  @ApiProperty()
+  @ApiProperty({example: 'white'})
   @IsString()
   buttonTextColor: string;
 
-  @ApiProperty()
-  @IsString()
+  @ApiProperty({example: '#FFF'})
+    @IsString()
   background: string;
 }
