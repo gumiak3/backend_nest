@@ -1,66 +1,80 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsBoolean, IsNotEmpty, IsString } from 'class-validator';
-import { PageButtons, Socials } from 'src/types/types';
+import { PageButtons, Socials } from '../../types/types';
 
 export class UpdatePageDto {
-  @ApiProperty({example: 'Such amazing page'})
+  @ApiProperty({ example: 'Such amazing page' })
   @IsString()
   bio: string;
 
-  @ApiProperty({example: false})
+  @ApiProperty({ example: false })
   @IsBoolean()
   premium: boolean;
 
-  @ApiProperty({example: true})
+  @ApiProperty({ example: true })
   @IsBoolean()
   verified: boolean;
 
-  @ApiProperty({example: 'John192'})
+  @ApiProperty({ example: 'John192' })
   @IsString()
   username: string;
 
-  @ApiProperty({example: 'John'})
+  @ApiProperty({ example: 'John' })
   @IsString()
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty({example: 'https://imageurl.com'})
+  @ApiProperty({ example: 'https://imageurl.com' })
   @IsString()
   img: string;
 
-  @ApiProperty({example:[{name: 'facebook', url: 'https://facebook.com', icon: 'facebook'}], type: [Socials]  })
+  @ApiProperty({
+    example: [
+      { name: 'facebook', url: 'https://facebook.com', icon: 'facebook' },
+    ],
+    type: [Socials],
+  })
   @IsArray()
   socials: Socials[];
 
-  @ApiProperty({example: [{name: 'Contact me', url: 'https://fake-contact.com', image: 'https://imageurl.com'}], type: [PageButtons]})
+  @ApiProperty({
+    example: [
+      {
+        name: 'Contact me',
+        url: 'https://fake-contact.com',
+        image: 'https://imageurl.com',
+      },
+    ],
+    type: [PageButtons],
+  })
   @IsArray()
   buttons: PageButtons[];
 
-  @ApiProperty({example: 'https://backgroundimagelink.com'})
+  @ApiProperty({ example: 'https://backgroundimagelink.com' })
   @IsString()
   backgroundImage: string;
-  
-  @ApiProperty({example: 'Arial'})
+
+  @ApiProperty({ example: 'Arial' })
   @IsString()
   font: string;
 
-  @ApiProperty({example: 'red'})
+  @ApiProperty({ example: 'red' })
   @IsString()
   fontColor: string;
 
-  @ApiProperty({example: 'lg'})
+  @ApiProperty({ example: 'lg' })
   @IsString()
   radius: string;
 
-  @ApiProperty({example: 'rounded'})
+  @ApiProperty({ example: 'rounded' })
   @IsString()
   buttonStyle: string;
 
-  @ApiProperty({example: 'white'})
+  @ApiProperty({ example: 'white' })
   @IsString()
   buttonTextColor: string;
 
-  @ApiProperty({example: '#FFF'})
+  @ApiProperty({ example: '#FFF' })
   @IsString()
   background: string;
 }
