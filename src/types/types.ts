@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class Socials {
   @ApiProperty()
@@ -17,7 +17,7 @@ export class PageButtons {
 
   @ApiProperty()
   url: string;
-  
+
   @ApiProperty()
   image: string;
 }

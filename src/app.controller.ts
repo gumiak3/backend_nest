@@ -15,7 +15,7 @@ export class AppController {
   }
 
   @Get()
-  getMessage(){
+  getMessage() {
     return this.appService.getMessages();
   }
 }
