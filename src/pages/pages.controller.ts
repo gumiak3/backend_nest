@@ -1,13 +1,6 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Put,
-  Query,
-} from '@nestjs/common';
-import { ApiQuery, ApiBody } from '@nestjs/swagger';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { ApiBody, ApiQuery } from '@nestjs/swagger';
+
 import { CreatePageDto } from './dto/create-page.dto';
 import { UpdatePageDto } from './dto/update-page-dto';
 import { PagesService } from './pages.service';
@@ -16,11 +9,11 @@ import { PagesService } from './pages.service';
 export class PagesController {
   constructor(private readonly pageService: PagesService) {}
 
-  @Post() 
+  @Post()
   create(@Body() createPageDto: CreatePageDto) {
     this.pageService.create(createPageDto);
-    
-    return {message: 'Page registered'}
+
+    return { message: 'Page registered' };
   }
 
   @Get('all')
@@ -33,16 +26,16 @@ export class PagesController {
   @ApiQuery({ name: 'username', type: 'string', required: false })
   findOne(@Query() query) {
     const { email, username } = query;
-    
+
     if (email && typeof email === 'string') {
       return this.pageService.findByEmail(email);
     }
-    
+
     if (username && typeof username === 'string') {
       return this.pageService.findByUsername(username);
     }
 
-    return {message: 'Provided parameters are invalid'}
+    return { message: 'Provided parameters are invalid' };
   }
 
   @Put('update/:email')

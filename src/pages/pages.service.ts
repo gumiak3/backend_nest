@@ -8,10 +8,12 @@ import { Page } from './entities/Page';
 export class PagesService {
   constructor(private em: EntityManager) {}
 
-  async create(createPageDto: CreatePageDto): Promise<void> {
+  async create(createPageDto: CreatePageDto): Promise<Page> {
     const page = this.em.create(Page, createPageDto);
 
     await this.em.persistAndFlush(page);
+
+    return page;
   }
 
   async findAll(): Promise<Page[]> {
@@ -26,7 +28,10 @@ export class PagesService {
     return this.em.findOne(Page, { username: username });
   }
 
-  async update(email: string, updatePageDto: Partial<CreatePageDto>) : Promise<void> {
+  async update(
+    email: string,
+    updatePageDto: Partial<CreatePageDto>,
+  ): Promise<Page> {
     const pageToUpdate = await this.em.findOne(Page, { email: email });
 
     if (!pageToUpdate) {
@@ -36,5 +41,7 @@ export class PagesService {
     const updated = this.em.assign(pageToUpdate, updatePageDto);
 
     await this.em.flush();
+
+    return updated;
   }
 }
